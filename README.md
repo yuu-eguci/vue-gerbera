@@ -1,5 +1,7 @@
 # vue-gerbera
 
+This project is just for testing deployment on Azure Storage Account through DevOps pipelines.
+
 ## Project setup
 ```
 yarn install
