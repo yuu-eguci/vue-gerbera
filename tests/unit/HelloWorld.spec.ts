@@ -1,4 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
+import { PropOptions } from 'vue'
 import HelloWorld from '@/components/HelloWorld.vue'
 
 describe('HelloWorld.vue', () => {
@@ -10,7 +11,8 @@ describe('HelloWorld.vue', () => {
 
   it('declares msg as a String prop', () => {
     const wrapper = shallowMount(HelloWorld, { propsData: { msg: 'x' } })
-    expect(wrapper.vm.$options.props.msg.type).toBe(String)
+    const props = wrapper.vm.$options.props as Record<string, PropOptions>
+    expect(props.msg.type).toBe(String)
     expect(wrapper.vm.$options.name).toBe('HelloWorld')
   })
 
