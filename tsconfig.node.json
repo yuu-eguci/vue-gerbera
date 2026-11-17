@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "types": [
+      "node",
+      "vitest/globals"
+    ],
+    "lib": [
+      "esnext"
+    ]
+  },
+  "include": [
+    "vite.config.ts",
+    "tests/build/**/*.ts"
+  ]
+}
