@@ -5,6 +5,20 @@ This project is just for testing deployment on Azure Storage Account through Dev
 It is a Vue 2.7 single-page app written in TypeScript and built with Vite.
 `yarn build` outputs static files to `dist/`: `index.html`, `favicon.ico`, the `app` entry in `js/`, styles in `css/` and images in `img/`, with source maps.
 
+## Run with Docker
+
+Requires Docker only. Node.js is not needed on the host.
+
+```
+docker build -t vue-gerbera .
+docker run --rm --name vue-gerbera -p 8080:80 vue-gerbera
+```
+
+Open http://localhost:8080. Stop the container with `Ctrl+C` or `docker stop vue-gerbera`.
+
+The `Dockerfile` runs `yarn install --frozen-lockfile` and `yarn build` (type-check included) on Node.js 26, then serves `dist/` with nginx on port 80.
+`.dockerignore` keeps `node_modules`, `dist`, `.git` and local env files out of the build context.
+
 ## Requirements
 
 - Node.js 26 (Active LTS, see `.node-version`). Node.js 24.15+ also works.
